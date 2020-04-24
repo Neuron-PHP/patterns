@@ -19,21 +19,21 @@ class NotCriteria implements ICriteria
 	}
 
 	/**
-	 * @param array $entities
+	 * @param array $Entities
 	 * @return array
 	 */
 
-	public function meetCriteria( array $entities )
+	public function meetCriteria( array $Entities )
 	{
-		$aNotCriteriaItems = $this->_Criteria->meetCriteria( $entities );
+		$NotCriteriaItems = $this->_Criteria->meetCriteria( $Entities );
 
-		$aNotEntities = $entities;
+		$NotEntities = $Entities;
 
-		foreach( $aNotCriteriaItems as $Item )
+		foreach( $NotCriteriaItems as $Item )
 		{
-			ArrayHelper::remove( $aNotEntities, $Item );
+			ArrayHelper::remove( $NotEntities, $Item );
 		}
 
-		return $aNotEntities;
+		return $NotEntities;
 	}
 }

@@ -13,18 +13,18 @@ class KeyValue extends Base implements ICriteria
 		$this->_Value = $Value;
 	}
 
-	public function meetCriteria( array $entities )
+	public function meetCriteria( array $Entities )
 	{
-		$aResults = [];
+		$Results = [];
 
-		foreach( $entities as $item )
+		foreach( $Entities as $Item )
 		{
-			if( $item[ $this->_Key ] == $this->_Value )
+			if( $Item[ $this->_Key ] == $this->_Value )
 			{
-				$aResults[] = $item;
+				$Results[] = $Item;
 			}
 		}
 
-		return $aResults;
+		return $Results;
 	}
 }

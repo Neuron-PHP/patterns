@@ -13,23 +13,23 @@ use Neuron\Data\ArrayHelper;
 class OrCriteria extends LogicBase implements ICriteria
 {
 	/**
-	 * @param array $entities
+	 * @param array $Entities
 	 * @return array
 	 */
 
-	public function meetCriteria( array $entities )
+	public function meetCriteria( array $Entities )
 	{
-		$aFirstCriteriaItems = $this->_Criteria->meetCriteria( $entities );
-		$aOtherCriteriaItems = $this->_OtherCriteria->meetCriteria( $entities );
+		$FirstCriteriaItems = $this->_Criteria->meetCriteria( $Entities );
+		$OtherCriteriaItems = $this->_OtherCriteria->meetCriteria( $Entities );
 
-		foreach( $aOtherCriteriaItems as $Item )
+		foreach( $OtherCriteriaItems as $Item )
 		{
-			if( !ArrayHelper::contains( $aFirstCriteriaItems, $Item ) )
+			if( !ArrayHelper::contains( $FirstCriteriaItems, $Item ) )
 			{
-				$aFirstCriteriaItems[] = $Item;
+				$FirstCriteriaItems[] = $Item;
 			}
 		}
 
-		return $aFirstCriteriaItems;
+		return $FirstCriteriaItems;
 	}
 }

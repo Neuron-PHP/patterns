@@ -16,6 +16,11 @@ class Session extends Base
 
 	public static function instance()
 	{
-		return isset( $_SESSION[ get_called_class() ] ) ? $_SESSION[ get_called_class() ] : false;
+		$Session = new \Neuron\Data\Filter\Session();
+
+		return $Session->filterScalar( get_called_class() ) ?
+			$Session->filterScalar( get_called_class() )
+			:
+			false;
 	}
 }
