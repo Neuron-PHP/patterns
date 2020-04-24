@@ -1,3 +1,5 @@
+## 0.5.5
+
 ## 0.5.4
 
 Refactored Observerable into a trait.
