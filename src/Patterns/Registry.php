@@ -11,27 +11,27 @@ class Registry extends Singleton\Memory
 	{}
 
 	/**
-	 * @param $name
-	 * @param $object
+	 * @param $Name
+	 * @param $Object
 	 */
 
-	public function set( $name, $object )
+	public function set( $Name, $Object )
 	{
-		$this->_Objects[ $name ] = $object;
+		$this->_Objects[ $Name ] = $Object;
 	}
 
 	/**
-	 * @param $name
+	 * @param $Name
 	 * @return value
 	 */
 
-	public function get( $name )
+	public function get( $Name )
 	{
-		if( !array_key_exists( $name, $this->_Objects ) )
+		if( !array_key_exists( $Name, $this->_Objects ) )
 		{
 			return null;
 		}
 
-		return $this->_Objects[ $name ];
+		return $this->_Objects[ $Name ];
 	}
 }

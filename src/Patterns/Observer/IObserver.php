@@ -10,10 +10,10 @@ namespace Neuron\Patterns\Observer;
 interface IObserver
 {
 	/**
-	 * @param Observable $Observable
+	 * @param $Observable
 	 * @param $param
 	 * @return mixed
 	 */
 
-	function notify( Observable $Observable, ...$param );
+	function observableUpdate( $Observable, ...$param );
 }

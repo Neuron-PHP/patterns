@@ -11,19 +11,19 @@ namespace Neuron\Patterns\Criteria;
 class AndCriteria extends LogicBase implements ICriteria
 {
 	/**
-	 * @param array $entities
+	 * @param array $Entities
 	 * @return array
 	 */
 
-	public function meetCriteria( array $entities )
+	public function meetCriteria( array $Entities )
 	{
-		$result = $this->_Criteria->meetCriteria( $entities );
+		$Result = $this->_Criteria->meetCriteria( $Entities );
 
-		if( count( $result ) == 0 )
+		if( count( $Result ) == 0 )
 		{
-			return $result;
+			return $Result;
 		}
 
-		return $this->_OtherCriteria->meetCriteria( $result );
+		return $this->_OtherCriteria->meetCriteria( $Result );
 	}
 }
