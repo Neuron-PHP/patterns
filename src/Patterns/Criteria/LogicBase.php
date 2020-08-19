@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lee
- * Date: 8/4/16
- * Time: 11:55 AM
- */
 
 namespace Neuron\Patterns\Criteria;
 

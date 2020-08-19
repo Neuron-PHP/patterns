@@ -5,7 +5,7 @@ use Neuron\Patterns\Singleton;
 
 class Registry extends Singleton\Memory
 {
-	private $_Objects = [];
+	private array $_Objects = [];
 
 	public function __construct()
 	{}
@@ -21,11 +21,11 @@ class Registry extends Singleton\Memory
 	}
 
 	/**
-	 * @param $Name
+	 * @param string $Name
 	 * @return value
 	 */
 
-	public function get( $Name )
+	public function get( string $Name )
 	{
 		if( !array_key_exists( $Name, $this->_Objects ) )
 		{
