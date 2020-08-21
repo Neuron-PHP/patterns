@@ -2,6 +2,12 @@
 
 namespace Neuron\Patterns\Singleton;
 
+/**
+ * Class Session
+ * @package Neuron\Patterns\Singleton
+ *
+ * Singleton that stores to a session.
+ */
 class Session extends Base
 {
 	public function serialize()

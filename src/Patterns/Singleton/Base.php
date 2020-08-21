@@ -10,9 +10,8 @@ namespace Neuron\Patterns\Singleton;
 abstract class Base implements ISingleton
 {
 	/**
-	 * @return null
+	 * @return mixed|null
 	 */
-
 	public static function getInstance()
 	{
 		if( static::instance() )

@@ -2,6 +2,13 @@
 
 namespace Neuron\Patterns\Singleton;
 
+/**
+ * Class Memory
+ * @package Neuron\Patterns\Singleton
+ *
+ * Singleton that stores to memory.
+ */
+
 class Memory extends Base
 {
 	static $_instance = [];
