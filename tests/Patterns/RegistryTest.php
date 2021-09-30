@@ -1,10 +1,13 @@
 <?php
 
-use Neuron\Patterns\Registry;
+namespace Tests\Patterns;
 
-class RegistrylTest extends PHPUnit\Framework\TestCase
+use Neuron\Patterns\Registry;
+use PHPUnit\Framework\TestCase;
+
+class RegistryTest extends TestCase
 {
-	protected function setUp()
+	protected function setUp(): void
 	{
 	}
 
@@ -30,7 +33,7 @@ class RegistrylTest extends PHPUnit\Framework\TestCase
 		$this->assertNotEquals( $Reg2->get( 'test' ), '1111' );
 	}
 
-	protected function tearDown()
+	protected function tearDown(): void
 	{
 	}
 }
