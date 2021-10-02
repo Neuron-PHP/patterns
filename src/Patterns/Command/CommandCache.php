@@ -7,12 +7,12 @@ class CommandCache implements ICommandCache
 	/**
 	 * @var ICommandCache|null
 	 */
-	private static ?ICommandCache $instance = null;
+	private static ?ICommandCache $_Instance = null;
 
 	/**
 	 * @var string[]
 	 */
-	private static array $cache = [];
+	private static array $_Cache = [];
 
 	/**
 	 * Making the constructor private to not allow to get the class instance using the "new" keyword
@@ -26,38 +26,38 @@ class CommandCache implements ICommandCache
 	 */
 	public static function getInstance(): ICommandCache
 	{
-		if (is_null(self::$instance))
+		if (is_null(self::$_Instance))
 		{
-			self::$instance = new self();
+			self::$_Instance = new self();
 		}
 
-		return self::$instance;
+		return self::$_Instance;
 	}
 
 	/**
-	 * @param string $action
-	 * @param string $command
+	 * @param string $Action
+	 * @param string $Command
 	 * @return CommandCache
 	 */
-	public function set(string $action, string $command): CommandCache
+	public function set(string $Action, string $Command): CommandCache
 	{
-		self::$cache[$action] = $command;
+		self::$_Cache[$Action] = $Command;
 
-		return self::$instance;
+		return self::$_Instance;
 	}
 
 	/**
-	 * @param string $action
+	 * @param string $Action
 	 * @return ICommand
 	 * @throws CommandNotFoundException
 	 */
-	public function get(string $action): ICommand
+	public function get(string $Action): ICommand
 	{
-		if(!isset(self::$cache[$action]))
+		if(!isset(self::$_Cache[$Action]))
 		{
-			throw new CommandNotFoundException("No command found for action '{$action}' in the cache.");
+			throw new CommandNotFoundException("No command found for action '{$Action}' in the cache.");
 		}
 
-		return new self::$cache[$action];
+		return new self::$_Cache[$Action];
 	}
 }

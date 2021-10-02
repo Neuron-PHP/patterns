@@ -20,20 +20,20 @@ class CommandCacheTest extends TestCase
 
 	public function testGetInstance()
 	{
-		$instance = CommandCache::getInstance();
-		$instance2 = CommandCache::getInstance();
+		$Instance = CommandCache::getInstance();
+		$Instance2 = CommandCache::getInstance();
 
-		$this->assertSame($instance, $instance2);
-		$this->assertTrue($instance instanceof CommandCache);
+		$this->assertSame($Instance, $Instance2);
+		$this->assertTrue($Instance instanceof CommandCache);
 	}
 
 	public function testGet()
 	{
-		$context = new CommandContext();
+		$Context = new CommandContext();
 
 		$this->assertTrue(
 			condition: CommandCache::getInstance()->get('mock')->execute(
-				context: $context->setParam('action', 'mock')
+				Context: $Context->setParam('action', 'mock')
 			)
 		);
 

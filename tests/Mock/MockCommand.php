@@ -7,8 +7,8 @@ use Neuron\Patterns\Command\ICommand;
 
 class MockCommand implements ICommand
 {
-	public function execute(CommandContext $context): bool
+	public function execute(CommandContext $Context): bool
 	{
-		return $context->getParam('action') === 'mock';
+		return $Context->getParam('action') === 'mock';
 	}
 }
