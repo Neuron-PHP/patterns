@@ -7,14 +7,14 @@ class Invoker
 	/**
 	 * @var CommandContext
 	 */
-	private CommandContext $context;
+	private CommandContext $Context;
 
 	/**
-	 * @param CommandContext|null $context
+	 * @param CommandContext|null $Context
 	 */
-	public function __construct(CommandContext $context = null)
+	public function __construct(CommandContext $Context = null)
 	{
-		$this->context = $context ?: new CommandContext();
+		$this->Context = $Context ?: new CommandContext();
 	}
 
 	/**
@@ -23,16 +23,16 @@ class Invoker
 	 */
 	public function process(): bool
 	{
-		$action = $this->context->getParam('action');
+		$Action = $this->Context->getParam('action');
 
-		if(!$action)
+		if(!$Action)
 		{
 			throw new NullActionParameterException("No 'action' parameter found in the context.");
 		}
 
-		$factory = new CommandFactory( CommandCache::getInstance());
-		$command = $factory->getCommand($action);
+		$Factory = new CommandFactory( CommandCache::getInstance());
+		$Command = $Factory->getCommand($Action);
 
-		return $command->execute($this->context);
+		return $Command->execute($this->Context);
 	}
 }

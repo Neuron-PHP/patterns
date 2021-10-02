@@ -12,33 +12,33 @@ class InvokerTest extends TestCase
 {
 	public function testProcessSuccess()
 	{
-		$context = new CommandContext();
-		$context->setParam('action', 'mock');
+		$Context = new CommandContext();
+		$Context->setParam('action', 'mock');
 
-		$invoker = new Invoker($context);
+		$Invoker = new Invoker($Context);
 
-		$this->assertTrue($invoker->process());
+		$this->assertTrue($Invoker->process());
 	}
 
 	public function testNullActionParameterException()
 	{
-		$context = new CommandContext();
-		$context->setParam('action', null);
+		$Context = new CommandContext();
+		$Context->setParam('action', null);
 
-		$invoker = new Invoker($context);
+		$Invoker = new Invoker($Context);
 
 		$this->expectException(NullActionParameterException::class);
-		$invoker->process();
+		$Invoker->process();
 	}
 
 	public function testCommandNotFoundException()
 	{
-		$context = new CommandContext();
-		$context->setParam('action', 'mock2');
+		$Context = new CommandContext();
+		$Context->setParam('action', 'mock2');
 
-		$invoker = new Invoker($context);
+		$Invoker = new Invoker($Context);
 
 		$this->expectException(CommandNotFoundException::class);
-		$invoker->process();
+		$Invoker->process();
 	}
 }

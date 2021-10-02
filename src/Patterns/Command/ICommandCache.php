@@ -10,14 +10,14 @@ interface ICommandCache
 	public static function getInstance(): ICommandCache;
 
 	/**
-	 * @param string $action
-	 * @param string $command
+	 * @param string $Action
+	 * @param string $Command
 	 */
-	public function set(string $action, string $command): ICommandCache;
+	public function set(string $Action, string $Command): ICommandCache;
 
 	/**
-	 * @param string $action
+	 * @param string $Action
 	 * @return ICommand
 	 */
-	public function get(string $action): ICommand;
+	public function get(string $Action): ICommand;
 }

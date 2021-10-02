@@ -21,12 +21,12 @@ class CommandFactoryTest extends TestCase
 
 	public function testGetCommand()
 	{
-		$factory = new CommandFactory(cache: CommandCache::getInstance());
-		$context = new CommandContext();
+		$Factory = new CommandFactory(cache: CommandCache::getInstance());
+		$Context = new CommandContext();
 
-		$command = $factory->getCommand('mock');
+		$Command = $Factory->getCommand('mock');
 
-		$this->assertTrue($command->execute($context->setParam('action', 'mock')));
+		$this->assertTrue($Command->execute($Context->setParam('action', 'mock')));
 
 		$this->expectException(CommandNotFoundException::class);
 		CommandCache::getInstance()->get('mock2');

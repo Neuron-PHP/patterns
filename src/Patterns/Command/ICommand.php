@@ -5,8 +5,8 @@ namespace Neuron\Patterns\Command;
 interface ICommand
 {
 	/**
-	 * @param CommandContext $context
+	 * @param CommandContext $Context
 	 * @return bool
 	 */
-	public function execute(CommandContext $context): bool;
+	public function execute(CommandContext $Context): bool;
 }

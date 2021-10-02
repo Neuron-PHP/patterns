@@ -7,22 +7,22 @@ class CommandFactory
 	/**
 	 * @var ICommandCache
 	 */
-	private ICommandCache $commandCache;
+	private ICommandCache $_Cache;
 
 	/**
-	 * @param ICommandCache $cache
+	 * @param ICommandCache $Cache
 	 */
-	public function __construct(ICommandCache $cache)
+	public function __construct(ICommandCache $Cache)
 	{
-		$this->commandCache = $cache;
+		$this->_Cache = $Cache;
 	}
 
 	/**
-	 * @param string $action
+	 * @param string $Action
 	 * @return ICommand
 	 */
-	public function getCommand(string $action): ICommand
+	public function getCommand(string $Action): ICommand
 	{
-		return $this->commandCache->get($action);
+		return $this->_Cache->get($Action);
 	}
 }

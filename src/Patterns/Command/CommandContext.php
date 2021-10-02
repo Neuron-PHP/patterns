@@ -7,31 +7,31 @@ class CommandContext
 	/**
 	 * @var string[]
 	 */
-	private array $params = [];
+	private array $_Params = [];
 
 	/**
 	 * @var string
 	 */
-	private string $error = '';
+	private string $_Error = '';
 
 	/**
-	 * @param string $key
-	 * @param string|null $value
+	 * @param string $Key
+	 * @param string|null $Value
 	 * @return $this
 	 */
-	public function setParam(string $key, ?string $value): CommandContext
+	public function setParam(string $Key, ?string $Value): CommandContext
 	{
-		$this->params[$key] = $value;
+		$this->_Params[$Key] = $Value;
 		return $this;
 	}
 
 	/**
-	 * @param string $key
+	 * @param string $Key
 	 * @return string|null
 	 */
-	public function getParam(string $key): ?string
+	public function getParam(string $Key): ?string
 	{
-		return $this->params[$key] ?? null;
+		return $this->_Params[$Key] ?? null;
 	}
 
 	/**
@@ -39,16 +39,16 @@ class CommandContext
 	 */
 	public function getError(): string
 	{
-		return $this->error;
+		return $this->_Error;
 	}
 
 	/**
-	 * @param string $error
+	 * @param string $Error
 	 * @return CommandContext
 	 */
-	public function setError(string $error): CommandContext
+	public function setError(string $Error): CommandContext
 	{
-		$this->error = $error;
+		$this->_Error = $Error;
 		return $this;
 	}
 }

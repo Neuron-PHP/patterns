@@ -9,15 +9,15 @@ class CommandContextTest extends TestCase
 {
 	public function testGetParam()
 	{
-		$context = new CommandContext();
+		$Context = new CommandContext();
 
-		$context->setParam('action', 'login');
+		$Context->setParam('action', 'login');
 
-		$this->assertEquals(expected: 'login', actual: $context->getParam('action'));
+		$this->assertEquals(expected: 'login', actual: $Context->getParam('action'));
 
-		$context->setParam('action', null);
+		$Context->setParam('action', null);
 
-		$this->assertNull($context->getParam('action'));
+		$this->assertNull($Context->getParam('action'));
 	}
 
 	public function testGetError()
