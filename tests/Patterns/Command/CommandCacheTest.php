@@ -3,7 +3,6 @@
 namespace Tests\Patterns\Command;
 
 use Neuron\Patterns\Command\CommandCache;
-use Neuron\Patterns\Command\CommandContext;
 use Neuron\Patterns\Command\CommandNotFoundException;
 use Tests\Mock\MockCommand;
 use PHPUnit\Framework\TestCase;
@@ -29,12 +28,10 @@ class CommandCacheTest extends TestCase
 
 	public function testGet()
 	{
-		$Context = new CommandContext();
-
 		$this->assertTrue(
-			condition: CommandCache::getInstance()->get('mock')->execute(
-				Context: $Context->setParam('action', 'mock')
-			)
+			condition: CommandCache::getInstance()->get('mock')->execute([
+				'type' => 'mock'
+			])
 		);
 
 		$this->expectException(CommandNotFoundException::class);
