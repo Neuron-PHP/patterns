@@ -5,34 +5,23 @@ namespace Neuron\Patterns\Command;
 class Invoker
 {
 	/**
-	 * @var CommandContext
-	 */
-	private CommandContext $Context;
-
-	/**
-	 * @param CommandContext|null $Context
-	 */
-	public function __construct(CommandContext $Context = null)
-	{
-		$this->Context = $Context ?: new CommandContext();
-	}
-
-	/**
+	 * @param string $Action
+	 * @param array|null $Params
 	 * @return bool
-	 * @throws NullActionParameterException
+	 * @throws EmptyActionParameterException
 	 */
-	public function process(): bool
+	public function process(string $Action, ?array $Params = null): bool
 	{
-		$Action = $this->Context->getParam('action');
-
 		if(!$Action)
 		{
-			throw new NullActionParameterException("No 'action' parameter found in the context.");
+			throw new EmptyActionParameterException(
+				"Please pass 'Action:' parameter as first argument to Invoker::process() method"
+			);
 		}
 
-		$Factory = new CommandFactory( CommandCache::getInstance());
+		$Factory = new CommandFactory(CommandCache::getInstance());
 		$Command = $Factory->getCommand($Action);
 
-		return $Command->execute($this->Context);
+		return $Command->execute($Params);
 	}
 }

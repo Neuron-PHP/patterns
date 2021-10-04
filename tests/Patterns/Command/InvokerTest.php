@@ -2,43 +2,40 @@
 
 namespace Tests\Patterns\Command;
 
-use Neuron\Patterns\Command\CommandContext;
+use Neuron\Patterns\Command\CommandCache;
 use Neuron\Patterns\Command\CommandNotFoundException;
+use Neuron\Patterns\Command\EmptyActionParameterException;
 use Neuron\Patterns\Command\Invoker;
-use Neuron\Patterns\Command\NullActionParameterException;
 use PHPUnit\Framework\TestCase;
+use Tests\Mock\MockCommand;
 
 class InvokerTest extends TestCase
 {
 	public function testProcessSuccess()
 	{
-		$Context = new CommandContext();
-		$Context->setParam('action', 'mock');
+		$Invoker = new Invoker();
 
-		$Invoker = new Invoker($Context);
-
-		$this->assertTrue($Invoker->process());
+		$this->assertTrue(
+			$Invoker->process(
+				Action: 'mock',
+				Params: ['type' => 'mock']
+			)
+		);
 	}
 
 	public function testNullActionParameterException()
 	{
-		$Context = new CommandContext();
-		$Context->setParam('action', null);
+		$Invoker = new Invoker();
 
-		$Invoker = new Invoker($Context);
-
-		$this->expectException(NullActionParameterException::class);
-		$Invoker->process();
+		$this->expectException(EmptyActionParameterException::class);
+		$Invoker->process(Action: '');
 	}
 
 	public function testCommandNotFoundException()
 	{
-		$Context = new CommandContext();
-		$Context->setParam('action', 'mock2');
-
-		$Invoker = new Invoker($Context);
+		$Invoker = new Invoker();
 
 		$this->expectException(CommandNotFoundException::class);
-		$Invoker->process();
+		$Invoker->process(Action: 'mock2');
 	}
 }

@@ -4,7 +4,6 @@ namespace Tests\Patterns\Command;
 
 use Neuron\Patterns\Command\CommandNotFoundException;
 use Tests\Mock\MockCommand;
-use Neuron\Patterns\Command\CommandContext;
 use Neuron\Patterns\Command\CommandFactory;
 use PHPUnit\Framework\TestCase;
 use Neuron\Patterns\Command\CommandCache;
@@ -21,12 +20,11 @@ class CommandFactoryTest extends TestCase
 
 	public function testGetCommand()
 	{
-		$Factory = new CommandFactory(cache: CommandCache::getInstance());
-		$Context = new CommandContext();
+		$Factory = new CommandFactory(CommandCache::getInstance());
 
 		$Command = $Factory->getCommand('mock');
 
-		$this->assertTrue($Command->execute($Context->setParam('action', 'mock')));
+		$this->assertTrue($Command->execute(['type' => 'mock']));
 
 		$this->expectException(CommandNotFoundException::class);
 		CommandCache::getInstance()->get('mock2');
