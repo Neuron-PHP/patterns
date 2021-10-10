@@ -2,37 +2,19 @@
 
 namespace Neuron\Patterns\Command;
 
-class CommandCache implements ICommandCache
+use Neuron\Patterns\Singleton\Base as Singleton;
+
+class CommandCache extends Singleton
 {
 	/**
-	 * @var ICommandCache|null
+	 * @var CommandCache|null
 	 */
-	private static ?ICommandCache $_Instance = null;
+	private static ?CommandCache $_Instance = null;
 
 	/**
 	 * @var string[]
 	 */
 	private static array $_Cache = [];
-
-	/**
-	 * Making the constructor private to not allow to get the class instance using the "new" keyword
-	 */
-	private function __construct()
-	{
-	}
-
-	/**
-	 * @return ICommandCache
-	 */
-	public static function getInstance(): ICommandCache
-	{
-		if (is_null(self::$_Instance))
-		{
-			self::$_Instance = new self();
-		}
-
-		return self::$_Instance;
-	}
 
 	/**
 	 * @param string $Action
@@ -59,5 +41,29 @@ class CommandCache implements ICommandCache
 		}
 
 		return new self::$_Cache[$Action];
+	}
+
+	/**
+	 * @return CommandCache|null
+	 */
+	static function instance(): ?CommandCache
+	{
+		return self::$_Instance;
+	}
+
+	/**
+	 * @return void
+	 */
+	function serialize(): void
+	{
+		self::$_Instance = new self();
+	}
+
+	/**
+	 * @return void
+	 */
+	static function invalidate(): void
+	{
+		self::$_Instance = null;
 	}
 }
