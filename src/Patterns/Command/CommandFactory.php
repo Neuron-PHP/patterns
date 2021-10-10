@@ -5,14 +5,14 @@ namespace Neuron\Patterns\Command;
 class CommandFactory
 {
 	/**
-	 * @var ICommandCache
+	 * @var CommandCache
 	 */
-	private ICommandCache $_Cache;
+	private CommandCache $_Cache;
 
 	/**
-	 * @param ICommandCache $Cache
+	 * @param CommandCache $Cache
 	 */
-	public function __construct(ICommandCache $Cache)
+	public function __construct(CommandCache $Cache)
 	{
 		$this->_Cache = $Cache;
 	}
@@ -20,6 +20,7 @@ class CommandFactory
 	/**
 	 * @param string $Action
 	 * @return ICommand
+	 * @throws CommandNotFoundException
 	 */
 	public function getCommand(string $Action): ICommand
 	{
