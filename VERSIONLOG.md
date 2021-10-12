@@ -1,4 +1,5 @@
-## 0.5.6
+## 0.5.6 2021-10-02
+* Added the Command pattern.
 
 ## 0.5.5 2020-08-19
 * Made Runnable Argv default to an array.
