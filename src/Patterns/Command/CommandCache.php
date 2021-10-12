@@ -2,15 +2,10 @@
 
 namespace Neuron\Patterns\Command;
 
-use Neuron\Patterns\Singleton\Base as Singleton;
+use Neuron\Patterns\Singleton\Memory as Singleton;
 
 class CommandCache extends Singleton
 {
-	/**
-	 * @var CommandCache|null
-	 */
-	private static ?CommandCache $_Instance = null;
-
 	/**
 	 * @var string[]
 	 */
@@ -25,7 +20,7 @@ class CommandCache extends Singleton
 	{
 		self::$_Cache[$Action] = $Command;
 
-		return self::$_Instance;
+		return self::instance();
 	}
 
 	/**
@@ -41,29 +36,5 @@ class CommandCache extends Singleton
 		}
 
 		return new self::$_Cache[$Action];
-	}
-
-	/**
-	 * @return CommandCache|null
-	 */
-	static function instance(): ?CommandCache
-	{
-		return self::$_Instance;
-	}
-
-	/**
-	 * @return void
-	 */
-	function serialize(): void
-	{
-		self::$_Instance = new self();
-	}
-
-	/**
-	 * @return void
-	 */
-	static function invalidate(): void
-	{
-		self::$_Instance = null;
 	}
 }
