@@ -1,8 +1,10 @@
 <?php
 
+namespace Tests\Patterns;
+
 use Neuron\Patterns\Registry;
 
-class RegistryTest extends PHPUnit\Framework\TestCase
+class RegistryTest extends \PHPUnit\Framework\TestCase
 {
 	public function testPass()
 	{
@@ -25,5 +27,4 @@ class RegistryTest extends PHPUnit\Framework\TestCase
 
 		$this->assertNotEquals( $Reg2->get( 'test' ), '1111' );
 	}
-
 }

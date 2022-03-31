@@ -10,6 +10,7 @@
         }
     ],
     "require": {
+        "php": "^8.0",
         "ext-curl": "*",
         "ext-json": "*",
         "neuron-php/data": "0.5.*"
@@ -19,7 +20,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Neuron\\": "src/"
+            "Neuron\\": "src/",
+            "Tests\\": "tests/"
         }
     }
 }

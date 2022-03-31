@@ -1,11 +1,16 @@
 <?php
 
-class SingletonTest extends \Neuron\Patterns\Singleton\Memory
+namespace Tests\Patterns\Singleton;
+
+use PHPUnit\Framework\TestCase;
+use \Neuron\Patterns\Singleton\Memory;
+
+class SingletonTest extends Memory
 {
 	public $Test;
 }
 
-class MemoryTest extends PHPUnit\Framework\TestCase
+class MemoryTest extends TestCase
 {
 	public function testPass()
 	{
