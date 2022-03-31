@@ -27,7 +27,7 @@ class Observer implements IObserver
 	}
 }
 
-class Test extends TestCase
+class ObserverTest extends TestCase
 {
 	/**
 	 * If notification works correctly then

@@ -7,10 +7,6 @@ class SingletonTest extends \Neuron\Patterns\Singleton\Memory
 
 class MemoryTest extends PHPUnit\Framework\TestCase
 {
-	protected function setUp()
-	{
-	}
-
 	public function testPass()
 	{
 		$Test = new SingletonTest();
@@ -24,9 +20,5 @@ class MemoryTest extends PHPUnit\Framework\TestCase
 			$Test->Test,
 			$Test2->Test
 		);
-	}
-
-	protected function tearDown()
-	{
 	}
 }

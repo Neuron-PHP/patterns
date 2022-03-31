@@ -2,12 +2,8 @@
 
 use Neuron\Patterns\Registry;
 
-class RegistrylTest extends PHPUnit\Framework\TestCase
+class RegistryTest extends PHPUnit\Framework\TestCase
 {
-	protected function setUp()
-	{
-	}
-
 	public function testPass()
 	{
 		$Reg1 = Registry::getInstance();
@@ -30,7 +26,4 @@ class RegistrylTest extends PHPUnit\Framework\TestCase
 		$this->assertNotEquals( $Reg2->get( 'test' ), '1111' );
 	}
 
-	protected function tearDown()
-	{
-	}
 }
