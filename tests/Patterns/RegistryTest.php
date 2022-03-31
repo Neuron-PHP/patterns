@@ -3,14 +3,9 @@
 namespace Tests\Patterns;
 
 use Neuron\Patterns\Registry;
-use PHPUnit\Framework\TestCase;
 
-class RegistryTest extends TestCase
+class RegistryTest extends \PHPUnit\Framework\TestCase
 {
-	protected function setUp(): void
-	{
-	}
-
 	public function testPass()
 	{
 		$Reg1 = Registry::getInstance();
@@ -31,9 +26,5 @@ class RegistryTest extends TestCase
 		$Reg2 = Registry::getInstance();
 
 		$this->assertNotEquals( $Reg2->get( 'test' ), '1111' );
-	}
-
-	protected function tearDown(): void
-	{
 	}
 }

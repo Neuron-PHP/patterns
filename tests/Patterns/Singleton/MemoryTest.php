@@ -12,10 +12,6 @@ class SingletonTest extends Memory
 
 class MemoryTest extends TestCase
 {
-	protected function setUp(): void
-	{
-	}
-
 	public function testPass()
 	{
 		$Test = new SingletonTest();
@@ -29,9 +25,5 @@ class MemoryTest extends TestCase
 			$Test->Test,
 			$Test2->Test
 		);
-	}
-
-	protected function tearDown(): void
-	{
 	}
 }
