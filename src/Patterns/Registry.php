@@ -3,6 +3,9 @@ namespace Neuron\Patterns;
 
 use Neuron\Patterns\Singleton;
 
+/**
+ * Singleton based registry object.
+ */
 class Registry extends Singleton\Memory
 {
 	private array $_Objects = [];

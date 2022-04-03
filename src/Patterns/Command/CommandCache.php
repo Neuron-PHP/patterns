@@ -4,6 +4,9 @@ namespace Neuron\Patterns\Command;
 
 use Neuron\Patterns\Singleton\Memory as Singleton;
 
+/**
+ * Maps strings to command classes.
+ */
 class CommandCache extends Singleton
 {
 	/**

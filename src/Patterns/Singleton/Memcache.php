@@ -3,9 +3,6 @@
 namespace Neuron\Patterns\Singleton;
 
 /**
- * Class Memcache
- * @package Neuron\Patterns\Singleton
- *
  * Singleton that stores to memcached.
  */
 class Memcache extends Base
