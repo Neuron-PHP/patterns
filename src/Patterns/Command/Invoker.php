@@ -2,6 +2,9 @@
 
 namespace Neuron\Patterns\Command;
 
+/**
+ * Gets and invokes a specified command.
+ */
 class Invoker
 {
 	/**

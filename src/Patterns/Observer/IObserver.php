@@ -3,8 +3,7 @@
 namespace Neuron\Patterns\Observer;
 
 /**
- * Interface IObserver
- * @package Neuron\Patterns\Observer
+ * Interface to allow an observable object to notify an observer.
  */
 
 interface IObserver

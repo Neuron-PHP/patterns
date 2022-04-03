@@ -3,8 +3,7 @@
 namespace Neuron\Patterns\Singleton;
 
 /**
- * Class Base
- * @package Neuron\Patterns\Singleton
+ * Core singleton behaviour.
  */
 
 abstract class Base implements ISingleton

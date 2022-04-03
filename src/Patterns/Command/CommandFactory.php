@@ -2,6 +2,9 @@
 
 namespace Neuron\Patterns\Command;
 
+/**
+ * Gets or creates a command object.
+ */
 class CommandFactory
 {
 	/**

@@ -2,8 +2,7 @@
 namespace Neuron\Patterns;
 
 /**
- * Interface IRunnable
- * @package Neuron\Patterns
+ * Interface to add runnable behavior to an object.
  */
 
 interface IRunnable

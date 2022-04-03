@@ -4,8 +4,7 @@ namespace Neuron\Patterns\Observer;
 use Neuron\Data\ArrayHelper;
 
 /**
- * Class ObservableTrait
- * @package Neuron\Patterns\Observer
+ * Trait used to make an object observable.
  */
 
 trait ObservableTrait
