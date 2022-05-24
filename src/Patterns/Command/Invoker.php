@@ -10,10 +10,11 @@ class Invoker
 	/**
 	 * @param string $Action
 	 * @param array|null $Params
-	 * @return bool
+	 * @return mixed
+	 * @throws CommandNotFoundException
 	 * @throws EmptyActionParameterException
 	 */
-	public function process(string $Action, ?array $Params = null): bool
+	public function process(string $Action, ?array $Params = null): mixed
 	{
 		if(!$Action)
 		{
