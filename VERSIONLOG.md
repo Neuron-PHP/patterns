@@ -1,3 +1,5 @@
+## 0.6.1
+
 
 ## 0.5.10 2022-05-23
 * Fixed the return type of `Command\Invoker::process` method.
