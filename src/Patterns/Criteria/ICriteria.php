@@ -8,6 +8,9 @@
 
 namespace Neuron\Patterns\Criteria;
 
+/**
+ * Criteria pattern.
+ */
 interface ICriteria
 {
 	/**

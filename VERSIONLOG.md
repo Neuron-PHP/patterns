@@ -1,3 +1,9 @@
+## 0.6.1 2024-12-05
+* Added mixed return type to the runnable interface.
+
+## 0.6.0
+
+Scheduled Release
 
 ## 0.5.10 2022-05-23
 * Fixed the return type of `Command\Invoker::process` method.

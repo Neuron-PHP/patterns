@@ -3,7 +3,7 @@
 namespace Neuron\Patterns\Singleton;
 
 /**
- * Singleton that stores to memcached.
+ * Singleton that serializes to memcached.
  */
 class Memcache extends Base
 {
