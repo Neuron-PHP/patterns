@@ -3,7 +3,7 @@
 namespace Neuron\Patterns\Singleton;
 
 /**
- * Singleton that stores to a session.
+ * Singleton that serializes to a session.
  */
 class Session extends Base
 {

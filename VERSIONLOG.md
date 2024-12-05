@@ -1,3 +1,6 @@
+## 0.6.1
+* Added mixed return type to the runnable interface.
+
 ## 0.6.0
 
 Scheduled Release

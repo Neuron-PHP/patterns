@@ -2,6 +2,9 @@
 
 namespace Neuron\Patterns\Command;
 
+/**
+ * Command pattern.
+ */
 interface ICommand
 {
 	/**

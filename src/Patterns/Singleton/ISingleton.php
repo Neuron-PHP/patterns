@@ -3,7 +3,7 @@
 namespace Neuron\Patterns\Singleton;
 
 /**
- * Interface for singleton functionality.
+ * Singleton pattern.
  */
 interface ISingleton
 {
