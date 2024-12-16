@@ -23,19 +23,19 @@ class Memcache extends Base
 		return $memcache;
 	}
 
-	public static function instance()
+	public static function instance(): mixed
 	{
 		$memcache = self::getMemcache();
 		return $memcache->get( get_called_class() );
 	}
 
-	public function serialize()
+	public function serialize(): void
 	{
 		$memcache = self::getMemcache();
 		$memcache->set( get_called_class(), $this );
 	}
 
-	public static function invalidate()
+	public static function invalidate(): void
 	{
 		$memcache = self::getMemcache();
 		$memcache->set( get_called_class(), false );

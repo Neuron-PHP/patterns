@@ -13,23 +13,25 @@ abstract class Base implements ISingleton
 	 */
 	public static function getInstance(): ?ISingleton
 	{
-		if( static::instance() )
+		if( !static::instance() )
 		{
-			$instance = static::instance();
-			if( $instance instanceof self )
-			{
-				return static::instance();
-			}
-		}
-		else
-		{
-			$sClass = get_called_class();
+			$Class = get_called_class();
 
-			$obj = new $sClass;
-			$obj->serialize();
-			return $obj;
+			$Object = new $Class;
+			$Object->serialize();
+			return $Object;
+		}
+
+		$instance = static::instance();
+		if( $instance instanceof self )
+		{
+			return static::instance();
 		}
 
 		return null;
 	}
+
+	public static abstract function instance() : mixed;
+	public abstract function serialize() : void;
+	public static abstract function invalidate() : void;
 }

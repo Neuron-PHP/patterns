@@ -18,17 +18,17 @@ class Registry extends Singleton\Memory
 	 * @param $Object
 	 */
 
-	public function set( $Name, $Object )
+	public function set( $Name, $Object ) : void
 	{
 		$this->_Objects[ $Name ] = $Object;
 	}
 
 	/**
 	 * @param string $Name
-	 * @return value
+	 * @return mixed
 	 */
 
-	public function get( string $Name )
+	public function get( string $Name ) : mixed
 	{
 		if( !array_key_exists( $Name, $this->_Objects ) )
 		{

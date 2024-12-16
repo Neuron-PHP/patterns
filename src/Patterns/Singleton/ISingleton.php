@@ -9,19 +9,17 @@ interface ISingleton
 {
 	/**
 	 * Writes the object data to the storage medium.
-	 * @return mixed
 	 */
-	function serialize();
+	function serialize() : void;
 
 	/**
 	 * Clears the current global object.
-	 * @return mixed
 	 */
-	static function invalidate();
+	static function invalidate() : void;
 
 	/**
 	 * Gets the global object instance.
 	 * @return mixed
 	 */
-	static function instance();
+	static function instance() : mixed;
 }
