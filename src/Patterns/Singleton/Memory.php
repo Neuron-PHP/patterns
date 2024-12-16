@@ -10,25 +10,23 @@ class Memory extends Base
 {
 	static $_instance = [];
 
-	public function serialize()
+	public function serialize(): void
 	{
 		static::$_instance[ get_called_class() ] = $this;
 	}
 
-	public static function invalidate()
+	public static function invalidate(): void
 	{
 		static::$_instance[ get_called_class() ] = false;
 	}
 
-	public static function instance()
+	public static function instance(): mixed
 	{
-		if( array_key_exists( get_called_class(), static::$_instance ) )
-		{
-			return static::$_instance[ get_called_class() ];
-		}
-		else
+		if( !array_key_exists( get_called_class(), static::$_instance ) )
 		{
 			return null;
 		}
+
+		return static::$_instance[ get_called_class() ];
 	}
 }

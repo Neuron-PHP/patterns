@@ -1,3 +1,6 @@
+## 0.6.2
+* Updated interfaces.
+
 ## 0.6.1 2024-12-05
 * Added mixed return type to the runnable interface.
 
