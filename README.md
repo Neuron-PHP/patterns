@@ -1,6 +1,18 @@
-[![Build Status](https://travis-ci.org/clearidea/neuron.svg?branch=master)](https://travis-ci.org/clearidea/neuron)
+[![Build Status](https://travis-ci.org/neuron-php/neuron.svg?branch=master)](https://travis-ci.com/neuron-php/patterns)
 
-# About Neuron PHP
+# Neuron-PHP Patterns 
+
+## Overview
+
+
+## Installation
+
+Install php composer from https://getcomposer.org/
+
+Install the neuron patterns component:
+
+    composer require neuron-php/patterns
+
 
 ## Patterns
 
@@ -51,3 +63,6 @@ An ObserverableTrait and IObserver interface make up the Observer pattern implem
 
 ### Singleton
 
+# More Information
+
+You can read more about the Neuron components at [neuronphp.com](http://neuronphp.com)
