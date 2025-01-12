@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.org/neuron-php/neuron.svg?branch=master)](https://travis-ci.com/neuron-php/patterns)
-
+[![Build Status](https://app.travis-ci.com/Neuron-PHP/patterns.svg?token=F8zCwpT7x7Res7J2N4vF&branch=develop)](https://app.travis-ci.com/Neuron-PHP/patterns)
 # Neuron-PHP Patterns 
 
 ## Overview
