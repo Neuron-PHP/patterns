@@ -30,7 +30,7 @@ class CriteriaTest extends PHPUnit\Framework\TestCase
 		$this->assertEquals( 1, count( $aResult ) );
 
 		$this->assertTrue(
-			ArrayHelper::contains( $aResult, 'three', 'name' )
+			ArrayHelper::contains( $aResult[ 0 ], 'three', 'name' )
 		);
 	}
 
@@ -59,11 +59,11 @@ class CriteriaTest extends PHPUnit\Framework\TestCase
 		$this->assertEquals( 2, count( $aResult ) );
 
 		$this->assertTrue(
-			ArrayHelper::contains( $aResult, 'three', 'name' )
+			ArrayHelper::contains( $aResult[ 1 ], 'three', 'name' )
 		);
 
 		$this->assertTrue(
-			ArrayHelper::contains( $aResult, '1', 'type' )
+			ArrayHelper::contains( $aResult[ 0 ], '1', 'type' )
 		);
 
 	}
@@ -93,7 +93,7 @@ class CriteriaTest extends PHPUnit\Framework\TestCase
 		$this->assertEquals( 1, count( $aResult ) );
 
 		$this->assertTrue(
-			ArrayHelper::contains( $aResult, 'one', 'name' )
+			ArrayHelper::contains( $aResult[ 0 ], 'one', 'name' )
 		);
 
 		$this->assertFalse(

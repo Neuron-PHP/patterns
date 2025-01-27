@@ -1,11 +1,9 @@
 ## 0.6.6
+* Updated to data 0.7
 
--e ## 0.6.5
-
+## 0.6.5
 ## 0.6.4
-
 ## 0.6.3
-
 ## 0.6.2
 * Updated interfaces.
 
