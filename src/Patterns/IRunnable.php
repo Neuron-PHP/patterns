@@ -12,5 +12,6 @@ interface IRunnable
 	 * @param array $Argv
 	 * @return mixed
 	 */
+
 	public function run( array $Argv = [] ): mixed;
 }

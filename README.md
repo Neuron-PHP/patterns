@@ -60,7 +60,13 @@ An ObserverableTrait and IObserver interface make up the Observer pattern implem
     
 ### Registry
 
+
+
 ### Singleton
+
+The singleton is a mixture of singleton and memento patterns whereby it can
+serialize itself to both memcache and redis to be shared across applications.
+
 
 # More Information
 

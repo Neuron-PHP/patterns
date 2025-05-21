@@ -26,4 +26,22 @@ class MemoryTest extends TestCase
 			$Test2->Test
 		);
 	}
+
+	public function testInvalidate()
+	{
+		$Test = new SingletonTest();
+		$Test->Test = 1;
+		$Test->serialize();
+		$Test2 = SingletonTest::instance();
+
+		$this->assertEquals(
+			$Test->Test,
+			$Test2->Test
+		);
+
+		$Test->invalidate();
+		$Test2 = SingletonTest::instance();
+
+		$this->assertNull( $Test2 );
+	}
 }

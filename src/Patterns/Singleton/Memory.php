@@ -17,7 +17,7 @@ class Memory extends Base
 
 	public static function invalidate(): void
 	{
-		static::$_instance[ get_called_class() ] = false;
+		unset( static::$_instance[ get_called_class() ] );
 	}
 
 	public static function instance(): mixed

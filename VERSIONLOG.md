@@ -1,8 +1,9 @@
+## 0.7.0
+* Refactoring.
+* Added Redis singleton.
+
 ## 0.6.7
-
 ## 0.6.6 2025-01-27
-* Updated to data 0.7
-
 ## 0.6.5
 ## 0.6.4
 ## 0.6.3

@@ -1,9 +1,12 @@
 <?php
 
+namespace Tests\Patterns\Criteria;
+
 use \Neuron\Patterns\Criteria\KeyValue;
 use \Neuron\Data\ArrayHelper;
+use PHPUnit\Framework\TestCase;
 
-class CriteriaTest extends PHPUnit\Framework\TestCase
+class CriteriaTest extends TestCase
 {
 	public function testAndCriteria()
 	{

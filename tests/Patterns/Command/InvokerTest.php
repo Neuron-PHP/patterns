@@ -2,12 +2,10 @@
 
 namespace Tests\Patterns\Command;
 
-use Neuron\Patterns\Command\CommandCache;
-use Neuron\Patterns\Command\CommandNotFoundException;
-use Neuron\Patterns\Command\EmptyActionParameterException;
+use Neuron\Core\Exceptions\CommandNotFound;
+use Neuron\Core\Exceptions\EmptyActionParameter;
 use Neuron\Patterns\Command\Invoker;
 use PHPUnit\Framework\TestCase;
-use Tests\Mock\MockCommand;
 
 class InvokerTest extends TestCase
 {
@@ -27,7 +25,7 @@ class InvokerTest extends TestCase
 	{
 		$Invoker = new Invoker();
 
-		$this->expectException(EmptyActionParameterException::class);
+		$this->expectException( EmptyActionParameter::class);
 		$Invoker->process(Action: '');
 	}
 
@@ -35,7 +33,7 @@ class InvokerTest extends TestCase
 	{
 		$Invoker = new Invoker();
 
-		$this->expectException(CommandNotFoundException::class);
+		$this->expectException( CommandNotFound::class);
 		$Invoker->process(Action: 'mock2');
 	}
 }

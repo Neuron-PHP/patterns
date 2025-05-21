@@ -7,17 +7,17 @@ namespace Neuron\Patterns\Singleton;
  */
 class Session extends Base
 {
-	public function serialize()
+	public function serialize(): void
 	{
 		$_SESSION[ get_called_class() ] = $this;
 	}
 
-	public static function invalidate()
+	public static function invalidate(): void
 	{
 		unset( $_SESSION[ get_called_class() ] );
 	}
 
-	public static function instance()
+	public static function instance(): mixed
 	{
 		$Session = new \Neuron\Data\Filter\Session();
 
