@@ -1,4 +1,6 @@
 ## 0.7.0
+
+## 0.7.0
 * Refactoring.
 * Added Redis singleton.
 
