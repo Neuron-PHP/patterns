@@ -2,29 +2,34 @@
 
 namespace Neuron\Patterns\Command;
 
+use Neuron\Core\Exceptions\CommandNotFound;
+use Neuron\Core\Exceptions\EmptyActionParameter;
+
 /**
  * Gets and invokes a specified command.
  */
+
 class Invoker
 {
 	/**
 	 * @param string $Action
 	 * @param array|null $Params
 	 * @return mixed
-	 * @throws CommandNotFoundException
-	 * @throws EmptyActionParameterException
+	 * @throws CommandNotFound
+	 * @throws EmptyActionParameter
 	 */
-	public function process(string $Action, ?array $Params = null): mixed
+
+	public function process( string $Action, ?array $Params = null ): mixed
 	{
-		if(!$Action)
+		if( !$Action )
 		{
-			throw new EmptyActionParameterException(
+			throw new EmptyActionParameter(
 				"Please pass 'Action:' parameter as first argument to Invoker::process() method"
 			);
 		}
 
-		$Factory = new CommandFactory(CommandCache::getInstance());
-		$Command = $Factory->getCommand($Action);
+		$Factory = new Factory( Cache::getInstance() );
+		$Command = $Factory->get( $Action);
 
 		return $Command->execute($Params);
 	}

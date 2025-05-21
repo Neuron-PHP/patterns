@@ -4,7 +4,6 @@ namespace Patterns\Observer;
 
 use Neuron\Patterns\Observer\IObserver;
 use Neuron\Patterns\Observer\ObservableTrait;
-use Observable;
 use PHPUnit\Framework\TestCase;
 
 class ObserveMe

@@ -11,6 +11,7 @@ abstract class Base implements ISingleton
 	/**
 	 * @return ISingleton|null
 	 */
+
 	public static function getInstance(): ?ISingleton
 	{
 		if( !static::instance() )
@@ -22,13 +23,7 @@ abstract class Base implements ISingleton
 			return $Object;
 		}
 
-		$instance = static::instance();
-		if( $instance instanceof self )
-		{
-			return static::instance();
-		}
-
-		return null;
+		return static::instance();
 	}
 
 	public static abstract function instance() : mixed;

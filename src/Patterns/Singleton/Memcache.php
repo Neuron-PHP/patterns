@@ -9,7 +9,7 @@ class Memcache extends Base
 {
 	private static $_memcache;
 
-	protected static function getMemcache()
+	protected static function getMemcache(): \Memcached
 	{
 		if( self::$_memcache )
 		{
