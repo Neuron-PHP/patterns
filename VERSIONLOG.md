@@ -1,4 +1,5 @@
-## 0.7.0
+## 0.7.1
+* Added a reset method to the Registry.
 
 ## 0.7.0
 * Refactoring.
