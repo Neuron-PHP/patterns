@@ -1,4 +1,6 @@
-## 0.7.0
+## 0.7.1 2025-11-06
+* Added a reset method to the Registry.
+* Updated composer.
 
 ## 0.7.0
 * Refactoring.
