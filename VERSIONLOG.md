@@ -1,5 +1,6 @@
 ## 0.7.1
 * Added a reset method to the Registry.
+* Updated composer.
 
 ## 0.7.0
 * Refactoring.
