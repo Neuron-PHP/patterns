@@ -1,4 +1,4 @@
-## 0.7.1
+## 0.7.2
 
 ## 0.7.1 2025-11-06
 * Added a reset method to the Registry.
