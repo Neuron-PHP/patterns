@@ -1,3 +1,5 @@
+## 0.7.4
+
 ## 0.7.3 2025-11-11
 * Converted to camelcase.
 
