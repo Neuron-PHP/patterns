@@ -6,34 +6,34 @@ use Neuron\Data\ArrayHelper;
 
 class NotCriteria implements ICriteria
 {
-	private $_Criteria;
+	private $_criteria;
 
 	/**
 	 * NotCriteria constructor.
-	 * @param ICriteria $Criteria
+	 * @param ICriteria $criteria
 	 */
 
-	public function __construct( ICriteria $Criteria )
+	public function __construct( ICriteria $criteria )
 	{
-		$this->_Criteria = $Criteria;
+		$this->_criteria = $criteria;
 	}
 
 	/**
-	 * @param array $Entities
+	 * @param array $entities
 	 * @return array
 	 */
 
-	public function meetCriteria( array $Entities )
+	public function meetCriteria( array $entities )
 	{
-		$NotCriteriaItems = $this->_Criteria->meetCriteria( $Entities );
+		$notCriteriaItems = $this->_criteria->meetCriteria( $entities );
 
-		$NotEntities = $Entities;
+		$notEntities = $entities;
 
-		foreach( $NotCriteriaItems as $Item )
+		foreach( $notCriteriaItems as $item )
 		{
-			ArrayHelper::remove( $NotEntities, $Item );
+			ArrayHelper::remove( $notEntities, $item );
 		}
 
-		return $NotEntities;
+		return $notEntities;
 	}
 }

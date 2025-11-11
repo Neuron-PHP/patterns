@@ -67,11 +67,11 @@ abstract class Base implements ISingleton
 	{
 		if( !static::instance() )
 		{
-			$Class = get_called_class();
+			$class = get_called_class();
 
-			$Object = new $Class;
-			$Object->serialize();
-			return $Object;
+			$object = new $class;
+			$object->serialize();
+			return $object;
 		}
 
 		return static::instance();

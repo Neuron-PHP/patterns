@@ -56,25 +56,25 @@ use Neuron\Core\Exceptions\EmptyActionParameter;
 class Invoker
 {
 	/**
-	 * @param string $Action
-	 * @param array|null $Params
+	 * @param string $action
+	 * @param array|null $params
 	 * @return mixed
 	 * @throws CommandNotFound
 	 * @throws EmptyActionParameter
 	 */
 
-	public function process( string $Action, ?array $Params = null ): mixed
+	public function process( string $action, ?array $params = null ): mixed
 	{
-		if( !$Action )
+		if( !$action )
 		{
 			throw new EmptyActionParameter(
 				"Please pass 'Action:' parameter as first argument to Invoker::process() method"
 			);
 		}
 
-		$Factory = new Factory( Cache::getInstance() );
-		$Command = $Factory->get( $Action);
+		$factory = new Factory( Cache::getInstance() );
+		$command = $factory->get( $action);
 
-		return $Command->execute($Params);
+		return $command->execute($params);
 	}
 }

@@ -58,9 +58,9 @@ namespace Neuron\Patterns\Command;
 interface ICommand
 {
 	/**
-	 * @param array|null $Params
+	 * @param array|null $params
 	 * @return mixed
 	 */
 
-	public function execute( ?array $Params = null ): mixed;
+	public function execute( ?array $params = null ): mixed;
 }

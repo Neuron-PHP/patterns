@@ -46,33 +46,33 @@ namespace Neuron\Patterns\Criteria;
  */
 abstract class Base implements ICriteria
 {
-	protected $_Criteria;
+	protected $_criteria;
 
 	/**
 	 * Creates an AND combination of this criteria with another criteria.
-	 * 
-	 * @param ICriteria $OtherCriteria The criteria to combine with using AND logic
+	 *
+	 * @param ICriteria $otherCriteria The criteria to combine with using AND logic
 	 * @return AndCriteria A new criteria that represents this AND other
 	 */
-	public function _and( ICriteria $OtherCriteria )
+	public function _and( ICriteria $otherCriteria )
 	{
-		return new AndCriteria( $this, $OtherCriteria );
+		return new AndCriteria( $this, $otherCriteria );
 	}
 
 	/**
 	 * Creates an OR combination of this criteria with another criteria.
-	 * 
-	 * @param ICriteria $OtherCriteria The criteria to combine with using OR logic
+	 *
+	 * @param ICriteria $otherCriteria The criteria to combine with using OR logic
 	 * @return OrCriteria A new criteria that represents this OR other
 	 */
-	public function _or( ICriteria $OtherCriteria )
+	public function _or( ICriteria $otherCriteria )
 	{
-		return new OrCriteria( $this, $OtherCriteria );
+		return new OrCriteria( $this, $otherCriteria );
 	}
 
 	/**
 	 * Creates a NOT (negation) of this criteria.
-	 * 
+	 *
 	 * @return NotCriteria A new criteria that represents the negation of this criteria
 	 */
 	public function _not()

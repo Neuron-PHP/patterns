@@ -4,17 +4,17 @@ namespace Neuron\Patterns\Criteria;
 
 abstract class LogicBase extends Base
 {
-	protected $_OtherCriteria;
+	protected $_otherCriteria;
 
 	/**
 	 * AndCriteria constructor.
-	 * @param ICriteria $Criteria
-	 * @param ICriteria $OtherCriteria
+	 * @param ICriteria $criteria
+	 * @param ICriteria $otherCriteria
 	 */
 
-	public function __construct( ICriteria $Criteria, ICriteria $OtherCriteria )
+	public function __construct( ICriteria $criteria, ICriteria $otherCriteria )
 	{
-		$this->_Criteria      = $Criteria;
-		$this->_OtherCriteria = $OtherCriteria;
+		$this->_criteria      = $criteria;
+		$this->_otherCriteria = $otherCriteria;
 	}
 }

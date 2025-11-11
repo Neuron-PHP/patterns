@@ -7,13 +7,13 @@ use Neuron\Patterns\Command\ICommand;
 class MockCommand implements ICommand
 {
 	/**
-	 * @param array|null $Params
+	 * @param array|null $params
 	 * @return bool
 	 */
-	public function execute(?array $Params = null): bool
+	public function execute(?array $params = null): bool
 	{
-		$Type = $Params['type'] ?? null;
+		$type = $params['type'] ?? null;
 
-		return $Type === 'mock';
+		return $type === 'mock';
 	}
 }

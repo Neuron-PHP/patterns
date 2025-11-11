@@ -11,34 +11,34 @@ use Neuron\Patterns\Singleton\Memory as Singleton;
 
 class Cache extends Singleton
 {
-	private static array $_Cache = [];
+	private static array $_cache = [];
 
 	/**
-	 * @param string $Action
-	 * @param string $Command
+	 * @param string $action
+	 * @param string $command
 	 * @return Cache
 	 */
 
-	public function set( string $Action, string $Command ): Cache
+	public function set( string $action, string $command ): Cache
 	{
-		self::$_Cache[ $Action ] = $Command;
+		self::$_cache[ $action ] = $command;
 
 		return self::instance();
 	}
 
 	/**
-	 * @param string $Action
+	 * @param string $action
 	 * @return ICommand
 	 * @throws CommandNotFound
 	 */
 
-	public function get( string $Action ): ICommand
+	public function get( string $action ): ICommand
 	{
-		if( !isset( self::$_Cache[ $Action ] ) )
+		if( !isset( self::$_cache[ $action ] ) )
 		{
-			throw new CommandNotFound( "No command found for action '{$Action}' in the cache." );
+			throw new CommandNotFound( "No command found for action '{$action}' in the cache." );
 		}
 
-		return new self::$_Cache[ $Action ];
+		return new self::$_cache[ $action ];
 	}
 }

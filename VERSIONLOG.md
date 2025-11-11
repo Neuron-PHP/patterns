@@ -1,4 +1,5 @@
 ## 0.7.3
+* Converted to camelcase.
 
 ## 0.7.2 2025-11-06
 

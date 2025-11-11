@@ -20,7 +20,7 @@ class Observer implements IObserver
 {
 	public $State = 0;
 
-	public function observableUpdate( $Observable, ...$param )
+	public function observableUpdate( $observable, ...$param )
 	{
 		$this->State = $param[ 0 ];
 	}
@@ -35,16 +35,16 @@ class ObserverTest extends TestCase
 	 */
 	public function testObserver()
 	{
-		$Observable = new ObserveMe();
-		$Observer   = new Observer();
+		$observable = new ObserveMe();
+		$observer   = new Observer();
 
-		$Observable->addObserver( $Observer );
+		$observable->addObserver( $observer );
 
-		$Observable->doIt();;
+		$observable->doIt();;
 
 		$this->assertEquals(
 			1,
-			$Observer->State
+			$observer->State
 		);
 	}
 
@@ -54,17 +54,17 @@ class ObserverTest extends TestCase
 	 */
 	public function testRemoveObserver()
 	{
-		$Observable = new ObserveMe();
-		$Observer   = new Observer();
+		$observable = new ObserveMe();
+		$observer   = new Observer();
 
-		$Observable->addObserver( $Observer );
-		$Observable->removeObserver( $Observer );
+		$observable->addObserver( $observer );
+		$observable->removeObserver( $observer );
 
-		$Observable->doIt();;
+		$observable->doIt();;
 
 		$this->assertEquals(
 			0,
-			$Observer->State
+			$observer->State
 		);
 	}
 }

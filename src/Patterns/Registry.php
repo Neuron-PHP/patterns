@@ -50,34 +50,34 @@ use Neuron\Patterns\Singleton;
  */
 class Registry extends Singleton\Memory
 {
-	private array $_Objects = [];
+	private array $_objects = [];
 
 	public function __construct()
 	{}
 
 	/**
-	 * @param $Name
-	 * @param $Object
+	 * @param $name
+	 * @param $object
 	 */
 
-	public function set( $Name, $Object ) : void
+	public function set( $name, $object ) : void
 	{
-		$this->_Objects[ $Name ] = $Object;
+		$this->_objects[ $name ] = $object;
 	}
 
 	/**
-	 * @param string $Name
+	 * @param string $name
 	 * @return mixed
 	 */
 
-	public function get( string $Name ) : mixed
+	public function get( string $name ) : mixed
 	{
-		if( !array_key_exists( $Name, $this->_Objects ) )
+		if( !array_key_exists( $name, $this->_objects ) )
 		{
 			return null;
 		}
 
-		return $this->_Objects[ $Name ];
+		return $this->_objects[ $name ];
 	}
 
 	/**
@@ -85,6 +85,6 @@ class Registry extends Singleton\Memory
 	 */
 	public function reset() : void
 	{
-		$this->_Objects = [];
+		$this->_objects = [];
 	}
 }
