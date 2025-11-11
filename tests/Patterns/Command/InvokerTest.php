@@ -11,29 +11,29 @@ class InvokerTest extends TestCase
 {
 	public function testProcessSuccess()
 	{
-		$Invoker = new Invoker();
+		$invoker = new Invoker();
 
 		$this->assertTrue(
-			$Invoker->process(
-				Action: 'mock',
-				Params: ['type' => 'mock']
+			$invoker->process(
+				action: 'mock',
+				params: ['type' => 'mock']
 			)
 		);
 	}
 
 	public function testNullActionParameterException()
 	{
-		$Invoker = new Invoker();
+		$invoker = new Invoker();
 
 		$this->expectException( EmptyActionParameter::class);
-		$Invoker->process(Action: '');
+		$invoker->process(action: '');
 	}
 
 	public function testCommandNotFoundException()
 	{
-		$Invoker = new Invoker();
+		$invoker = new Invoker();
 
 		$this->expectException( CommandNotFound::class);
-		$Invoker->process(Action: 'mock2');
+		$invoker->process(action: 'mock2');
 	}
 }

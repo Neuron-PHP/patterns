@@ -4,27 +4,27 @@ namespace Neuron\Patterns\Criteria;
 
 class KeyValue extends Base implements ICriteria
 {
-	private $_Key;
-	private $_Value;
+	private $_key;
+	private $_value;
 
-	public function __construct( $Key, $Value )
+	public function __construct( $key, $value )
 	{
-		$this->_Key   = $Key;
-		$this->_Value = $Value;
+		$this->_key   = $key;
+		$this->_value = $value;
 	}
 
-	public function meetCriteria( array $Entities )
+	public function meetCriteria( array $entities )
 	{
-		$Results = [];
+		$results = [];
 
-		foreach( $Entities as $Item )
+		foreach( $entities as $item )
 		{
-			if( $Item[ $this->_Key ] == $this->_Value )
+			if( $item[ $this->_key ] == $this->_value )
 			{
-				$Results[] = $Item;
+				$results[] = $item;
 			}
 		}
 
-		return $Results;
+		return $results;
 	}
 }

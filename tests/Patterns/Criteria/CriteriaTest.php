@@ -25,10 +25,10 @@ class CriteriaTest extends TestCase
 			],
 		];
 
-		$MatchesOne = new KeyValue( 'type', '1' );
-		$MatchesTwo = new KeyValue( 'name', 'three' );
+		$matchesOne = new KeyValue( 'type', '1' );
+		$matchesTwo = new KeyValue( 'name', 'three' );
 
-		$aResult = $MatchesOne->_and( $MatchesTwo )->meetCriteria( $aTest );
+		$aResult = $matchesOne->_and( $matchesTwo )->meetCriteria( $aTest );
 
 		$this->assertEquals( 1, count( $aResult ) );
 
@@ -54,10 +54,10 @@ class CriteriaTest extends TestCase
 			],
 		];
 
-		$MatchesOne = new KeyValue( 'type', '1' );
-		$MatchesTwo = new KeyValue( 'name', 'three' );
+		$matchesOne = new KeyValue( 'type', '1' );
+		$matchesTwo = new KeyValue( 'name', 'three' );
 
-		$aResult = $MatchesOne->_or( $MatchesTwo )->meetCriteria( $aTest );
+		$aResult = $matchesOne->_or( $matchesTwo )->meetCriteria( $aTest );
 
 		$this->assertEquals( 2, count( $aResult ) );
 
@@ -88,10 +88,10 @@ class CriteriaTest extends TestCase
 			],
 		];
 
-		$MatchesOne  = new KeyValue( 'type', '1' );
-		$MatchesFred = new KeyValue( 'name', 'Fred' );
+		$matchesOne  = new KeyValue( 'type', '1' );
+		$matchesFred = new KeyValue( 'name', 'Fred' );
 
-		$aResult = $MatchesOne->_and( $MatchesFred->_not() )->meetCriteria( $aTest );
+		$aResult = $matchesOne->_and( $matchesFred->_not() )->meetCriteria( $aTest );
 
 		$this->assertEquals( 1, count( $aResult ) );
 

@@ -10,25 +10,25 @@ use Neuron\Core\Exceptions\CommandNotFound;
 
 class Factory
 {
-	private Cache $_Cache;
+	private Cache $_cache;
 
 	/**
-	 * @param Cache $Cache
+	 * @param Cache $cache
 	 */
 
-	public function __construct( Cache $Cache )
+	public function __construct( Cache $cache )
 	{
-		$this->_Cache = $Cache;
+		$this->_cache = $cache;
 	}
 
 	/**
-	 * @param string $Action
+	 * @param string $action
 	 * @return ICommand
 	 * @throws CommandNotFound
 	 */
 
-	public function get( string $Action ): ICommand
+	public function get( string $action ): ICommand
 	{
-		return $this->_Cache->get( $Action );
+		return $this->_cache->get( $action );
 	}
 }

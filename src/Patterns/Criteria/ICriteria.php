@@ -52,9 +52,9 @@ namespace Neuron\Patterns\Criteria;
 interface ICriteria
 {
 	/**
-	 * @param array $Entities
+	 * @param array $entities
 	 * @return array
 	 */
 
-	public function meetCriteria( array $Entities );
+	public function meetCriteria( array $entities );
 }

@@ -19,10 +19,10 @@ class Session extends Base
 
 	public static function instance(): mixed
 	{
-		$Session = new \Neuron\Data\Filter\Session();
+		$session = new \Neuron\Data\Filter\Session();
 
-		return $Session->filterScalar( get_called_class() ) ?
-			$Session->filterScalar( get_called_class() )
+		return $session->filterScalar( get_called_class() ) ?
+			$session->filterScalar( get_called_class() )
 			:
 			false;
 	}

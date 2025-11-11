@@ -9,9 +9,9 @@ interface IRunnable
 {
 	/**
 	 * Generic run method.
-	 * @param array $Argv
+	 * @param array $argv
 	 * @return mixed
 	 */
 
-	public function run( array $Argv = [] ): mixed;
+	public function run( array $argv = [] ): mixed;
 }

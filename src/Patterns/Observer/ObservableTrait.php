@@ -10,28 +10,28 @@ use Patterns\Observer\ObserveMe;
 
 trait ObservableTrait
 {
-	private array $_Observers = [];
+	private array $_observers = [];
 
 	/**
 	 * Add an observer to the notification list.
-	 * @param IObserver $Observer
+	 * @param IObserver $observer
 	 * @return ObservableTrait|ObserveMe
 	 */
 
-	public function addObserver( IObserver $Observer ) : self
+	public function addObserver( IObserver $observer ) : self
 	{
-		$this->_Observers[] = $Observer;
+		$this->_observers[] = $observer;
 		return $this;
 	}
 
 	/**
 	 * Remove an observer from the notification list.
-	 * @param IObserver $Observer
+	 * @param IObserver $observer
 	 */
 
-	public function removeObserver( IObserver $Observer ): void
+	public function removeObserver( IObserver $observer ): void
 	{
-		ArrayHelper::remove( $this->_Observers, $Observer );
+		ArrayHelper::remove( $this->_observers, $observer );
 	}
 
 	/**
@@ -40,9 +40,9 @@ trait ObservableTrait
 
 	public function notifyObservers( ...$params ): void
 	{
-		foreach( $this->_Observers as $Observer )
+		foreach( $this->_observers as $observer )
 		{
-			$Observer->observableUpdate( $this, ...$params );
+			$observer->observableUpdate( $this, ...$params );
 		}
 	}
 }
