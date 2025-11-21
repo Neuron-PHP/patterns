@@ -10,41 +10,31 @@ use Neuron\Patterns\Singleton;
  * throughout the application lifecycle. It serves as a service locator and
  * dependency injection container, allowing components to share state and
  * communicate across the entire framework.
- * 
- * Key characteristics:
- * - Thread-safe singleton implementation
- * - Global state management for framework components
- * - Object lifecycle management and storage
- * - Service locator pattern for dependency resolution
- * - Memory-based storage with automatic cleanup
- * 
- * Usage patterns:
- * - Store framework configuration objects
- * - Cache expensive-to-create objects (database connections, etc.)
- * - Share state between disconnected components
- * - Implement service locator for dependency injection
- * 
- * Thread Safety:
- * The registry uses memory-based singleton storage, which is safe for
- * single-threaded PHP environments. For multi-threaded scenarios,
- * consider using alternative storage backends.
- * 
+ *
  * @package Neuron\Patterns
  * 
  * @example
  * ```php
  * $registry = Registry::instance();
- * 
- * // Store configuration
+ *
+ * // Store configuration (method syntax)
  * $registry->set('database.config', $dbConfig);
  * $registry->set('app.settings', $appSettings);
- * 
- * // Retrieve objects
+ *
+ * // Store configuration (property syntax using magic methods)
+ * $registry->databaseConfig = $dbConfig;
+ * $registry->appSettings = $appSettings;
+ *
+ * // Retrieve objects (method syntax)
  * $dbConfig = $registry->get('database.config');
- * $hasCache = $registry->has('cache.instance');
- * 
+ *
+ * // Retrieve objects (property syntax using magic methods)
+ * $dbConfig = $registry->databaseConfig;
+ *
+ * // Check existence
+ * $exists = isset($registry->databaseConfig);
+ *
  * // Cleanup
- * $registry->remove('temp.data');
  * $registry->reset(); // Clear all objects
  * ```
  */
@@ -86,5 +76,39 @@ class Registry extends Singleton\Memory
 	public function reset() : void
 	{
 		$this->_objects = [];
+	}
+
+	/**
+	 * Magic method to get a registry value using property syntax.
+	 *
+	 * @param string $name The name of the registry key
+	 * @return mixed The value stored in the registry, or null if not found
+	 */
+	public function __get( string $name ) : mixed
+	{
+		return $this->get( $name );
+	}
+
+	/**
+	 * Magic method to set a registry value using property syntax.
+	 *
+	 * @param string $name The name of the registry key
+	 * @param mixed $value The value to store in the registry
+	 * @return void
+	 */
+	public function __set( string $name, mixed $value ) : void
+	{
+		$this->set( $name, $value );
+	}
+
+	/**
+	 * Magic method to check if a registry key exists using isset().
+	 *
+	 * @param string $name The name of the registry key
+	 * @return bool True if the key exists in the registry, false otherwise
+	 */
+	public function __isset( string $name ) : bool
+	{
+		return array_key_exists( $name, $this->_objects );
 	}
 }
