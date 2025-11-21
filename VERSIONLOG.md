@@ -1,3 +1,5 @@
+## 0.7.5
+
 ## 0.7.4 2025-11-21
 * Added get and set magic methods to the Registry.
 
