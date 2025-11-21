@@ -1,3 +1,6 @@
+## 0.7.4 2025-11-21
+* Added get and set magic methods to the Registry.
+
 ## 0.7.3 2025-11-11
 * Converted to camelcase.
 
