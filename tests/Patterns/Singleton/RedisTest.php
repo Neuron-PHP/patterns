@@ -134,6 +134,20 @@ class RedisTest extends TestCase
 
 	public function testGetRedisCreatesConnectionOnFirstCall(): void
 	{
+		// Skip if we can't connect to Redis server
+		if (class_exists('\Redis', false)) {
+			try {
+				$testRedis = new \Redis();
+				@$testRedis->connect('127.0.0.1', 6379, 0.1);
+				if (!$testRedis->ping()) {
+					$this->markTestSkipped('Redis server not available');
+				}
+				$testRedis->close();
+			} catch (\Throwable $e) {
+				$this->markTestSkipped('Redis server not available: ' . $e->getMessage());
+			}
+		}
+
 		// Reset static redis
 		$reflection = new \ReflectionClass(Redis::class);
 		$property = $reflection->getProperty('_redis');

@@ -112,6 +112,17 @@ class MemcacheTest extends TestCase
 
 	public function testGetMemcacheCreatesConnectionOnFirstCall(): void
 	{
+		// Skip if Memcached server not available (though Memcached doesn't connect until use)
+		if (class_exists('\Memcached', false)) {
+			try {
+				$testMemcached = new \Memcached();
+				$testMemcached->addServer('127.0.0.1', 11211);
+				// Memcached doesn't connect until first operation, so this is usually safe
+			} catch (\Throwable $e) {
+				$this->markTestSkipped('Memcached not available: ' . $e->getMessage());
+			}
+		}
+
 		// Reset static memcache
 		$reflection = new \ReflectionClass(Memcache::class);
 		$property = $reflection->getProperty('_memcache');
