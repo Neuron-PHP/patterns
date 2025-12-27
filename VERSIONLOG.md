@@ -1,4 +1,5 @@
 ## 0.7.6
+* Added the PRS-11 ContainerInterface.
 
 ## 0.7.5 2025-11-28
 
