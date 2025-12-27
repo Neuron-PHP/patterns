@@ -37,6 +37,30 @@ class CriteriaTest extends TestCase
 		);
 	}
 
+	public function testAndCriteriaReturnsEmptyWhenFirstCriteriaMatchesNothing()
+	{
+		$aTest = [
+			[
+				'name' => 'one',
+				'type' => 1
+			],
+			[
+				'name' => 'two',
+				'type' => 2
+			],
+		];
+
+		// First criteria will match nothing
+		$matchesNothing = new KeyValue( 'type', '999' );
+		$matchesSomething = new KeyValue( 'name', 'one' );
+
+		$aResult = $matchesNothing->_and( $matchesSomething )->meetCriteria( $aTest );
+
+		// Should return empty array immediately
+		$this->assertEquals( 0, count( $aResult ) );
+		$this->assertEmpty( $aResult );
+	}
+
 	public function testOrCriteria()
 	{
 		$aTest = [

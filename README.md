@@ -1,4 +1,5 @@
 [![CI](https://github.com/Neuron-PHP/patterns/actions/workflows/ci.yml/badge.svg)](https://github.com/Neuron-PHP/patterns/actions)
+[![codecov](https://codecov.io/gh/Neuron-PHP/patterns/branch/develop/graph/badge.svg)](https://codecov.io/gh/Neuron-PHP/patterns)
 # Neuron-PHP Patterns
 
 A comprehensive design patterns library for PHP 8.0+ that provides robust implementations of common software design patterns including Singleton, Registry, Observer, Command, and Criteria patterns.
