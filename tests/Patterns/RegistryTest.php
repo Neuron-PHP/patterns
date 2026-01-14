@@ -93,6 +93,52 @@ class RegistryTest extends \PHPUnit\Framework\TestCase
 		$this->assertFalse( isset( $Reg1->testKey ) );
 	}
 
+	public function testHasMethod()
+	{
+		$Reg1 = Registry::getInstance();
+		$Reg1->reset();
+
+		// Test has() returns false for non-existent key
+		$this->assertFalse( $Reg1->has( 'testKey' ) );
+
+		// Set a value using regular method
+		$Reg1->set( 'testKey', 'test value' );
+
+		// Test has() returns true for existing key
+		$this->assertTrue( $Reg1->has( 'testKey' ) );
+
+		// Set another value using magic method
+		$Reg1->magicKey = 'magic value';
+
+		// Test has() works with magic-set values
+		$this->assertTrue( $Reg1->has( 'magicKey' ) );
+
+		// Reset and verify has() returns false
+		$Reg1->reset();
+		$this->assertFalse( $Reg1->has( 'testKey' ) );
+		$this->assertFalse( $Reg1->has( 'magicKey' ) );
+	}
+
+	public function testHasMethodConsistency()
+	{
+		$Reg1 = Registry::getInstance();
+		$Reg1->reset();
+
+		// has() and isset() should be consistent
+		$this->assertFalse( $Reg1->has( 'testKey' ) );
+		$this->assertFalse( isset( $Reg1->testKey ) );
+
+		$Reg1->set( 'testKey', 'value' );
+
+		$this->assertTrue( $Reg1->has( 'testKey' ) );
+		$this->assertTrue( isset( $Reg1->testKey ) );
+
+		// Test with null value - both should return true (key exists)
+		$Reg1->set( 'nullKey', null );
+		$this->assertTrue( $Reg1->has( 'nullKey' ) );
+		$this->assertTrue( isset( $Reg1->nullKey ) );
+	}
+
 	public function testMagicMethodsIntegration()
 	{
 		$Reg1 = Registry::getInstance();

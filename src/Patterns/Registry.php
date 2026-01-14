@@ -31,7 +31,10 @@ use Neuron\Patterns\Singleton;
  * // Retrieve objects (property syntax using magic methods)
  * $dbConfig = $registry->databaseConfig;
  *
- * // Check existence
+ * // Check existence (method syntax)
+ * $exists = $registry->has('database.config');
+ *
+ * // Check existence (property syntax using magic methods)
  * $exists = isset($registry->databaseConfig);
  *
  * // Cleanup
@@ -68,6 +71,17 @@ class Registry extends Singleton\Memory
 		}
 
 		return $this->_objects[ $name ];
+	}
+
+	/**
+	 * Check if a named object exists in the registry.
+	 *
+	 * @param string $name The name of the object to check
+	 * @return bool True if the object exists, false otherwise
+	 */
+	public function has( string $name ): bool
+	{
+		return array_key_exists( $name, $this->_objects );
 	}
 
 	/**
