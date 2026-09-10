@@ -1,4 +1,4 @@
-## 0.7.11
+## 0.7.11 2026-09-10
 
 ## 0.7.10 2026-01-14
 * Added the has method to the Registry.
