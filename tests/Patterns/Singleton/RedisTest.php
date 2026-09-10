@@ -60,7 +60,6 @@ class RedisTest extends TestCase
 		// Inject mock using reflection
 		$reflection = new \ReflectionClass(Redis::class);
 		$property = $reflection->getProperty('_redis');
-		$property->setAccessible(true);
 		$property->setValue(null, $this->redisMock);
 
 		$retrieved = RedisSingletonTest::instance();
@@ -81,7 +80,6 @@ class RedisTest extends TestCase
 		// Inject mock using reflection
 		$reflection = new \ReflectionClass(Redis::class);
 		$property = $reflection->getProperty('_redis');
-		$property->setAccessible(true);
 		$property->setValue(null, $this->redisMock);
 
 		$retrieved = RedisSingletonTest::instance();
@@ -109,7 +107,6 @@ class RedisTest extends TestCase
 		// Inject mock using reflection
 		$reflection = new \ReflectionClass(Redis::class);
 		$property = $reflection->getProperty('_redis');
-		$property->setAccessible(true);
 		$property->setValue(null, $this->redisMock);
 
 		$instance->serialize();
@@ -126,7 +123,6 @@ class RedisTest extends TestCase
 		// Inject mock using reflection
 		$reflection = new \ReflectionClass(Redis::class);
 		$property = $reflection->getProperty('_redis');
-		$property->setAccessible(true);
 		$property->setValue(null, $this->redisMock);
 
 		RedisSingletonTest::invalidate();
@@ -151,12 +147,10 @@ class RedisTest extends TestCase
 		// Reset static redis
 		$reflection = new \ReflectionClass(Redis::class);
 		$property = $reflection->getProperty('_redis');
-		$property->setAccessible(true);
 		$property->setValue(null, null);
 
 		// Get the protected method
 		$method = $reflection->getMethod('getRedis');
-		$method->setAccessible(true);
 
 		// First call should create new Redis
 		$redis1 = $method->invoke(null);
