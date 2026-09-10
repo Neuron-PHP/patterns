@@ -58,7 +58,6 @@ class MemcacheTest extends TestCase
 		// Inject mock using reflection
 		$reflection = new \ReflectionClass(Memcache::class);
 		$property = $reflection->getProperty('_memcache');
-		$property->setAccessible(true);
 		$property->setValue(null, $this->memcachedMock);
 
 		$retrieved = MemcacheSingletonTest::instance();
@@ -84,7 +83,6 @@ class MemcacheTest extends TestCase
 		// Inject mock using reflection
 		$reflection = new \ReflectionClass(Memcache::class);
 		$property = $reflection->getProperty('_memcache');
-		$property->setAccessible(true);
 		$property->setValue(null, $this->memcachedMock);
 
 		$instance->serialize();
@@ -104,7 +102,6 @@ class MemcacheTest extends TestCase
 		// Inject mock using reflection
 		$reflection = new \ReflectionClass(Memcache::class);
 		$property = $reflection->getProperty('_memcache');
-		$property->setAccessible(true);
 		$property->setValue(null, $this->memcachedMock);
 
 		MemcacheSingletonTest::invalidate();
@@ -126,12 +123,10 @@ class MemcacheTest extends TestCase
 		// Reset static memcache
 		$reflection = new \ReflectionClass(Memcache::class);
 		$property = $reflection->getProperty('_memcache');
-		$property->setAccessible(true);
 		$property->setValue(null, null);
 
 		// Get the protected method
 		$method = $reflection->getMethod('getMemcache');
-		$method->setAccessible(true);
 
 		// First call should create new Memcached
 		$memcache1 = $method->invoke(null);
